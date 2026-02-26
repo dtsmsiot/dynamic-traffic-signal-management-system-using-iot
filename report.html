@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Traffic Report</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+<style>
+  .top-bar span { font-weight:bold; }
+  .signal-dot { display:inline-block; width:20px; height:20px; border-radius:50%; margin-right:5px; }
+  table { width:100%; border-collapse: collapse; margin-top:10px; }
+  table, th, td { border:1px solid #999; }
+  th, td { padding:8px; text-align:center; }
+</style>
+</head>
+<body>
+
+  <div class="sidebar">
+        <h2>Traffic Management System</h2>
+        <a href="index.html">Overview</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="report.html">Traffic Report</a>
+        <a href="approve.html" class="admin-only">Approve Police</a>
+<a href="emergency_dashboard.html" class="admin-only">Emergency Dashboard</a>
+        <a href="login.html">Logout</a>
+    </div>
+
+
+<div class="main">
+
+
+    <div class="header-bar">
+        <h1>🚦 Dynamic Traffic Signal Management System</h1>
+        <div class="header-info">
+            <span id="dateTime"></span>
+            <span> | City: Nashik</span>
+        </div>
+    </div>
+
+    <h1>Traffic Monitoring & Report</h1>
+
+    <div class="top-bar">
+        <span>Police: <b id="policeName"></b></span>
+        <span>Timer: <b id="timer">00:00</b></span>
+        <div>
+            <button id="startBtn" onclick="startTimer(1)">Start 1 min</button>
+            <button id="stopBtn" onclick="stopTimerManual()" disabled>Stop</button>
+            <button id="excelBtn" onclick="downloadExcel()" disabled>Download Excel</button>
+            <button id="pdfBtn" onclick="downloadPDF()" disabled>Download PDF</button>
+        </div>
+    </div>
+
+
+    <table id="reportTable">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Lane 1</th>
+                <th>Lane 2</th>
+                <th>Lane 3</th>
+                <th>Lane 4</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    
+    <div id="summaryText" style="margin-top:10px; font-weight:bold;"></div>
+
+    
+    <canvas id="trafficChart" width="900" height="300" style="margin-top:30px;"></canvas>
+
+</div>
+
+<script src="report.js"></script>
+</body>
+</html>

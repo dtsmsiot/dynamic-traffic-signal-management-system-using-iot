@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Police Registration</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-box">
+
+    <div class="traffic-light">
+      <div class="light red"></div>
+      <div class="light yellow"></div>
+      <div class="light green"></div>
+    </div>
+
+    <h2>Dynamic Traffic Signal Management System</h2>
+    <p class="subtitle">Police Registration</p>
+
+    <form onsubmit="registerUser('police'); return false;">
+      <div class="input-group">
+        <label>Police Name</label>
+        <input type="text" id="police_name" required>
+      </div>
+
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" id="su_username" required>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="su_password" required>
+      </div>
+
+      <button type="submit">Register</button>
+
+      <p id="msg"></p>
+    </form>
+
+    <p><a href="login.html">Back to Login</a></p>
+
+  </div>
+</div>
+
+<script src="signup.js"></script>
+</body>
+</html>
